@@ -24,10 +24,11 @@ class HomePage extends StatelessWidget {
             ),
             const SizedBox(width: 16),
             const SText(
-                text: 'Shoes App',
-                font: Font.bold,
-                size: 20,
-                color: SColors.primary),
+              text: 'Shoes App',
+              font: Font.bold,
+              size: 20,
+              color: SColors.primary,
+            ),
           ],
         ),
       ),
@@ -70,10 +71,11 @@ class HomePage extends StatelessWidget {
             child: PageView.builder(
               itemBuilder: (context, index) => CarouselSlider(
                 items: List.generate(
-                    banner.length, (index) => Image.asset(banner[index])),
+                  banner.length,
+                  (index) => Image.asset(banner[index]),
+                ),
                 options: CarouselOptions(
                   height: 400,
-                  aspectRatio: 16 / 9,
                   viewportFraction: 0.8,
                   initialPage: 0,
                   enableInfiniteScroll: true,
@@ -87,6 +89,47 @@ class HomePage extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                 ),
               ),
+            ),
+          ),
+          // tranding
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const SText(
+                  text: 'Trending',
+                  font: Font.regular,
+                  size: 16,
+                ),
+                Row(
+                  children: [
+                    SliderTheme(
+                      data: SliderTheme.of(context).copyWith(
+                        trackHeight: 2,
+                        activeTrackColor: SColors.primary,
+                        thumbColor: Colors.transparent,
+                        inactiveTrackColor: const Color(0xFFFFECEC),
+                        thumbShape: const RoundSliderThumbShape(
+                          enabledThumbRadius: 0.0,
+                        ),
+                      ),
+                      child: Slider(
+                        max: 5,
+                        value: 1,
+                        min: 0,
+                        onChanged: (value) {},
+                      ),
+                    ),
+                    const SText(
+                      text: '01/5',
+                      font: Font.regular,
+                      size: 16,
+                      color: SColors.primary,
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ],
