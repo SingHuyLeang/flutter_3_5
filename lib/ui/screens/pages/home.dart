@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:shoes_app/data/banner.dart';
 import 'package:shoes_app/ui/components/widgets/text.dart';
 import 'package:shoes_app/ui/theme/colors.dart';
@@ -91,7 +90,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-          // tranding
+          // trending
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Row(
@@ -130,6 +129,20 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ],
+            ),
+          ),
+          // product grid
+          GridView.builder(
+            shrinkWrap: true,
+            physics: AlwaysScrollableScrollPhysics(),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 8,
+              crossAxisSpacing: 8,
+              mainAxisExtent: 400,
+            ),
+            itemBuilder: (context, index) => Container(
+              color: Colors.blue,
             ),
           ),
         ],
