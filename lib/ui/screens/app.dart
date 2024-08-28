@@ -13,13 +13,15 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  final navItems = [
+final navItems = [
     "assets/images/home.png",
     "assets/images/heart.png",
     "assets/images/shopping_card.png",
     "assets/images/profile.png",
   ];
+
   int page = 0;
+
   final pageController = PageController();
 
   @override
