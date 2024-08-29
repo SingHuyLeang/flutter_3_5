@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:shoes_app/data/product.dart';
 import 'package:shoes_app/ui/components/widgets/text.dart';
