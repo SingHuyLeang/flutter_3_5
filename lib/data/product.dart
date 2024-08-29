@@ -7,6 +7,7 @@ class Product {
   String description;
   double price;
   int quantity;
+  bool favorite;
   double rating;
   List<Color> colors;
 
@@ -17,6 +18,7 @@ class Product {
     required this.description,
     required this.price,
     required this.quantity,
+    required this.favorite,
     required this.rating,
     required this.colors,
   });
@@ -30,6 +32,7 @@ class Product {
       description: 'The iconic Air Jordan 5 is known for its comfortable, breathable, and durable build.',
       price: 150.0,
       quantity: 50,
+      favorite: false,
       rating: 4.5,
       colors: [Colors.blue, Colors.pink, Colors.black],
     ),
@@ -40,6 +43,7 @@ class Product {
       description: 'The iconic Air Jordan 5 is known for its comfortable, breathable, and durable build.',
       price: 150.0,
       quantity: 50,
+      favorite: false,
       rating: 4.5,
       colors: [Colors.blue, Colors.pink, Colors.black],
     ),
