@@ -1,9 +1,15 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:test/storage/sqlite/sqlite.dart';
 import 'home_page.dart';
 
 void main() {
+  final sqlite = SQLite();
+
   runApp(const MyApp());
+  sqlite.init().then((value) => log("path : ${value.path}"));
 }
 
 class MyApp extends StatelessWidget {

@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:test/storage/pref/pref.dart';
 
 class CounterController extends GetxController {
+  
   final RxInt _counter = 0.obs;
 
   @override
