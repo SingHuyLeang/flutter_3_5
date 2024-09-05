@@ -1,6 +1,7 @@
 import 'package:sqflite/sqflite.dart';
 
 class SQLite {
+  
   final String database = "test.db";
   final String table = "tasks";
   final String id = "id";

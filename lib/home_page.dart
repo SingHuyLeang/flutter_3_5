@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:test/controller/counter_controller.dart';
-import 'package:test/second_page.dart';
-import 'package:test/storage/pref/pref.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
-  final state = Get.put(CounterController());
-  final pref = Preferences();
+  final visible = true.obs;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,43 +13,90 @@ class HomePage extends StatelessWidget {
         title: const Text('Home Page'),
       ),
       body: Obx(
-        () => Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text(
-                'You have pushed the button this many times:',
-              ),
-              const SizedBox(height: 24),
-              Text(
-                "${state.counter}",
-                style: Theme.of(context)
-                    .textTheme
-                    .displayMedium!
-                    .apply(color: Colors.grey[700]),
-              ),
-              const SizedBox(height: 32),
-              GestureDetector(
-                onTap: () => pref.saveCounter(state.counter),
-                child: const Text(
-                  'Save connter',
+        () => Visibility(
+          visible: visible.value,
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                const SizedBox(height: 32),
+                // form
+                Container(
+                  width: double.infinity,
+                  height: 60,
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Row(
+                    children: [
+                      const Text("0", style: TextStyle(fontSize: 20)),
+                      const SizedBox(width: 24),
+                      // field
+                      SizedBox(
+                        width: 230,
+                        height: 50,
+                        child: TextField(
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide: const BorderSide(
+                                color: Colors.black,
+                              ),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide: const BorderSide(
+                                color: Colors.black,
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide: const BorderSide(
+                                color: Colors.black,
+                              ),
+                            ),
+                            labelText: "Add a task",
+                            labelStyle: const TextStyle(
+                              fontSize: 18,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ),
+                      ),
+                      // button save
+                      const SizedBox(width: 24),
+                      SizedBox(
+                        width: 80,
+                        height: 50,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                          child: const Text(
+                            "Save",
+                            style: TextStyle(
+                                fontSize: 14, color: Color(0xFFFFFFFF)),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(height: 64),
-              GestureDetector(
-                onTap: () => Get.to(() => SecondPage()),
-                child: const Text(
-                  'Watch next screen!',
+                // tasks
+                const SizedBox(height: 32),
+                ...List.generate(
+                  10,
+                  (index) => Container(
+                    width: double.infinity,
+                    height: 64,
+                    color: Colors.amber,
+                    margin: const EdgeInsets.symmetric(vertical: 8),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async => state.incrementCounter(),
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
