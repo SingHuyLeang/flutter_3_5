@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:sqflite/sqflite.dart';
+import 'package:test/data/note.dart';
 
 class SQLite {
   final String database = "test.db";
@@ -27,5 +28,17 @@ class SQLite {
       log('error adding note : $e');
     }
     return i > 0;
+  }
+
+  Future<List<Note>> getNotes() async {
+    List<Map<String, dynamic>> notes = [];
+
+    try {
+      final db = await init();
+      notes = await db.rawQuery("SELECT * FROM $table");
+    } on DatabaseException catch (e) {
+      log('error adding note : $e');
+    }
+    return notes.map((e) => Note.fromMap(e)).toList();
   }
 }
