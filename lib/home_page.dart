@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:test/controller/note_controller.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
   final visible = true.obs;
+  final controller = Get.put(NoteController());
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +35,7 @@ class HomePage extends StatelessWidget {
                         width: 230,
                         height: 50,
                         child: TextField(
+                          controller: controller.textController,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
@@ -58,6 +61,10 @@ class HomePage extends StatelessWidget {
                               color: Colors.grey,
                             ),
                           ),
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.grey.shade900,
+                          ),
                         ),
                       ),
                       // button save
@@ -66,7 +73,7 @@ class HomePage extends StatelessWidget {
                         width: 80,
                         height: 50,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () async => controller.addNote(),
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
