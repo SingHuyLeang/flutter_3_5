@@ -52,4 +52,20 @@ class SQLite {
     }
     return i > 0;
   }
+
+  Future<bool> updateNote(int id, String newTask) async {
+    int i = 0;
+    try {
+      final db = await init();
+      i = await db.update(
+        table,
+        {task: newTask},
+        where: "${this.id} = ?",
+        whereArgs: [id],
+      );
+    } on DatabaseException catch (e) {
+      log("error update note : $e");
+    }
+    return i > 0;
+  }
 }

@@ -28,7 +28,10 @@ class HomePage extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Row(
                     children: [
-                      const Text("0", style: TextStyle(fontSize: 20)),
+                      Text(
+                        controller.id.value.toString(),
+                        style: const TextStyle(fontSize: 20),
+                      ),
                       const SizedBox(width: 24),
                       // field
                       SizedBox(
@@ -73,16 +76,18 @@ class HomePage extends StatelessWidget {
                         width: 80,
                         height: 50,
                         child: ElevatedButton(
-                          onPressed: () async => controller.addNote(),
+                          onPressed: () async => controller.isUpdate.value? controller.updateNote() : controller.addNote(),
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
                           ),
-                          child: const Text(
-                            "Save",
-                            style: TextStyle(
-                                fontSize: 14, color: Color(0xFFFFFFFF)),
+                          child: Text(
+                            controller.isUpdate.value ? "Edit" : "Save",
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Color(0xFFFFFFFF),
+                            ),
                           ),
                         ),
                       ),
@@ -93,38 +98,41 @@ class HomePage extends StatelessWidget {
                 const SizedBox(height: 32),
                 ...List.generate(
                   controller.noteList.length,
-                  (index) => Container(
-                    width: double.infinity,
-                    margin: const EdgeInsets.symmetric(
-                      vertical: 8,
-                      horizontal: 16,
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 8,
-                      horizontal: 16,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: Theme.of(context).colorScheme.primaryContainer,
-                    ),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          controller.noteList[index].task,
-                          style: Theme.of(context).textTheme.bodyLarge,
-                        ),
-                        IconButton(
-                          onPressed: () async => controller.delete(
-                            controller.noteList[index].id,
+                  (index) => GestureDetector(
+                    onTap: () async => controller.catchId(index),
+                    child: Container(
+                      width: double.infinity,
+                      margin: const EdgeInsets.symmetric(
+                        vertical: 8,
+                        horizontal: 16,
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 8,
+                        horizontal: 16,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: Theme.of(context).colorScheme.primaryContainer,
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            controller.noteList[index].task,
+                            style: Theme.of(context).textTheme.bodyLarge,
                           ),
-                          icon: Icon(
-                            Icons.delete,
-                            color: Colors.red[200],
+                          IconButton(
+                            onPressed: () async => controller.delete(
+                              controller.noteList[index].id,
+                            ),
+                            icon: Icon(
+                              Icons.delete,
+                              color: Colors.red[200],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
