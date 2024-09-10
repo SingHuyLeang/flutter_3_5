@@ -35,4 +35,14 @@ class NoteController extends GetxController {
     }
     update();
   }
+
+  void delete(int id) async {
+    if (await sqlie.deleteNote(id)) {
+      Get.snackbar('Note', 'Your note has been deleted');
+      refreshNote();
+    } else {
+      Get.snackbar('Error', 'Failed to delete note');
+    }
+    update();
+  }
 }

@@ -92,12 +92,40 @@ class HomePage extends StatelessWidget {
                 // tasks
                 const SizedBox(height: 32),
                 ...List.generate(
-                  10,
+                  controller.noteList.length,
                   (index) => Container(
                     width: double.infinity,
-                    height: 64,
-                    color: Colors.amber,
-                    margin: const EdgeInsets.symmetric(vertical: 8),
+                    margin: const EdgeInsets.symmetric(
+                      vertical: 8,
+                      horizontal: 16,
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 8,
+                      horizontal: 16,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Theme.of(context).colorScheme.primaryContainer,
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          controller.noteList[index].task,
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        ),
+                        IconButton(
+                          onPressed: () async => controller.delete(
+                            controller.noteList[index].id,
+                          ),
+                          icon: Icon(
+                            Icons.delete,
+                            color: Colors.red[200],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

@@ -37,8 +37,19 @@ class SQLite {
       final db = await init();
       notes = await db.rawQuery("SELECT * FROM $table");
     } on DatabaseException catch (e) {
-      log('error adding note : $e');
+      log('error get notes : $e');
     }
     return notes.map((e) => Note.fromMap(e)).toList();
+  }
+
+  Future<bool> deleteNote(int id) async {
+    int i = 0;
+    try {
+      final db = await init();
+      i = await db.delete(table, where: "${this.id} = ?", whereArgs: [id]);
+    } on DatabaseException catch (e) {
+      log('error delete note : $e');
+    }
+    return i > 0;
   }
 }
