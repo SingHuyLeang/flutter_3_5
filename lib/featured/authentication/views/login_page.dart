@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:pet_app/components/asset_button.dart';
 import 'package:pet_app/components/input_field.dart';
+import 'package:pet_app/featured/authentication/views/create_account_page.dart';
 import 'package:pet_app/utils/theme/text_theme.dart';
 import 'package:pet_app/utils/types/colors.dart';
 
@@ -109,7 +111,7 @@ class LogInPage extends StatelessWidget {
                     width: double.infinity,
                     text: "Create new account ?",
                     textColor: PColors.primary,
-                    onTab: () {},
+                    onTab: () => Get.to(() => CreateAccount()),
                   ),
                 ),
               ],
