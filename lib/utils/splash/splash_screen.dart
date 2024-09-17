@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:pet_app/featured/authentication/views/login_page.dart';
+import 'package:pet_app/featured/app/home/home_page.dart';
 
 class SplashController extends GetxController {
   Future delayed() async {
@@ -11,7 +11,7 @@ class SplashController extends GetxController {
   @override
   void onInit() async {
     super.onInit();
-    delayed().whenComplete(() => Get.to(() => LogInPage()));
+    delayed().whenComplete(() => Get.to(() => HomePage()));
   }
 }
 

@@ -6,6 +6,7 @@ import 'package:pet_app/components/asset_button.dart';
 import 'package:pet_app/components/input_field.dart';
 import 'package:pet_app/utils/theme/text_theme.dart';
 import 'package:pet_app/utils/types/colors.dart';
+import 'package:pet_app/utils/types/fonts.dart';
 
 class CreateAccount extends StatelessWidget {
   const CreateAccount({super.key});
@@ -21,7 +22,8 @@ class CreateAccount extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 // title
-                const PText(text: "Create account", size: 32, isBold: true),
+                const PText(
+                    text: "Create account", size: 32, fontType: Font.bold),
                 // image
                 const SizedBox(height: 32),
                 Align(

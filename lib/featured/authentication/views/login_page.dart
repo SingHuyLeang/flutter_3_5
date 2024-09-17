@@ -7,6 +7,7 @@ import 'package:pet_app/components/input_field.dart';
 import 'package:pet_app/featured/authentication/views/create_account_page.dart';
 import 'package:pet_app/utils/theme/text_theme.dart';
 import 'package:pet_app/utils/types/colors.dart';
+import 'package:pet_app/utils/types/fonts.dart';
 
 class LogInPage extends StatelessWidget {
   const LogInPage({super.key});
@@ -22,7 +23,7 @@ class LogInPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 // title
-                const PText(text: "Log In", size: 32, isBold: true),
+                const PText(text: "Log In", size: 32, fontType: Font.bold),
                 // image
                 const SizedBox(height: 32),
                 Align(

@@ -85,6 +85,9 @@ flutter:
     - family: siembold
       fonts:
         - asset: assets/fonts/Poppins-SemiBold.ttf
+    - family: bold
+      fonts:
+        - asset: assets/fonts/poppins_bold.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

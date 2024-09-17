@@ -6,14 +6,16 @@ class PText extends StatelessWidget {
   const PText({
     super.key,
     required this.text,
-    this.isBold = false,
+    this.fontType = Font.medium,
     this.color,
     this.size = 16,
+    this.weight,
   });
   final String text;
-  final bool isBold;
+  final String fontType;
   final Color? color;
   final double size;
+  final FontWeight? weight;
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +23,9 @@ class PText extends StatelessWidget {
       text,
       style: TextStyle(
         fontSize: size,
-        fontFamily: isBold ? Font.siembold : Font.medium,
+        fontFamily: fontType,
         color: color ?? PColors.dark,
+        fontWeight: weight,
       ),
       maxLines: null,
       softWrap: true,
