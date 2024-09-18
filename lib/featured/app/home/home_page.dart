@@ -10,14 +10,10 @@ import 'package:pet_app/utils/types/colors.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-
-  final scrollPhysic = const ScrollPhysics();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        physics: scrollPhysic,
         child: SafeArea(
           child: Column(
             children: [
@@ -34,7 +30,7 @@ class HomePage extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 32),
                 alignment: Alignment.centerLeft,
-                child: PetGrid(scrollPhysics: scrollPhysic),
+                child: PetGrid(),
               ),
             ],
           ),

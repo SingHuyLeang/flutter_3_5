@@ -6,9 +6,7 @@ import 'package:pet_app/utils/theme/text_theme.dart';
 import 'package:pet_app/utils/types/colors.dart';
 
 class PetGrid extends StatelessWidget {
-  PetGrid({super.key, this.scrollPhysics});
-
-  final ScrollPhysics? scrollPhysics;
+  PetGrid({super.key});
 
   final controller = Get.put(PetController());
 
@@ -18,12 +16,11 @@ class PetGrid extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        PText(text: "Adopt Pet"),
-        SizedBox(height: 16),
+        const PText(text: "Adopt Pet"),
+        const SizedBox(height: 16),
         GridView.builder(
           shrinkWrap: true,
-          // physics: AlwaysScrollableScrollPhysics(parent: scrollPhysics),
-          // keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+          physics: const NeverScrollableScrollPhysics(),
           itemCount: controller.pets.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
