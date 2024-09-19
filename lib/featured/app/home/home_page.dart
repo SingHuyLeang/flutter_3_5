@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:pet_app/featured/app/home/components/categories.dart';
 import 'package:pet_app/featured/app/home/components/home_header.dart';
 import 'package:pet_app/featured/app/home/components/pet_grid.dart';
@@ -31,6 +28,14 @@ class HomePage extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 32),
                 alignment: Alignment.centerLeft,
                 child: PetGrid(),
+              ),
+              // footer
+              Padding(
+                padding: const EdgeInsets.all(32.0),
+                child: PText(
+                  text: 'Pet App. All rights reserved.',
+                  color: PColors.stroke,
+                ),
               ),
             ],
           ),

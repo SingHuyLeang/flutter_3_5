@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pet_app/components/asset_button.dart';
@@ -112,7 +111,7 @@ class LogInPage extends StatelessWidget {
                     width: double.infinity,
                     text: "Create new account ?",
                     textColor: PColors.primary,
-                    onTab: () => Get.to(() => CreateAccount()),
+                    onTab: () => Get.to(() => const CreateAccount()),
                   ),
                 ),
               ],

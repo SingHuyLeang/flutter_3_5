@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:pet_app/components/asset_button.dart';
 import 'package:pet_app/controller/pet_controller.dart';
 import 'package:pet_app/data/pet.dart';
 import 'package:pet_app/utils/theme/text_theme.dart';
-import 'package:pet_app/utils/types/colors.dart';
-import 'package:pet_app/utils/types/fonts.dart';
 
 class PetGrid extends StatelessWidget {
   PetGrid({super.key});

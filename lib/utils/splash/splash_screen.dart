@@ -5,13 +5,13 @@ import 'package:pet_app/featured/app/home/home_page.dart';
 
 class SplashController extends GetxController {
   Future delayed() async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 3));
   }
 
   @override
   void onInit() async {
     super.onInit();
-    delayed().whenComplete(() => Get.to(() => HomePage()));
+    delayed().whenComplete(() => Get.to(() => const HomePage()));
   }
 }
 
@@ -26,11 +26,14 @@ class SplashScreen extends StatelessWidget {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: SvgPicture.asset(
-            "assets/images/playful_cat.svg",
-            width: 364,
-            height: 181,
-            fit: BoxFit.fill,
+          child: Hero(
+            tag: 11111111,
+            child: SvgPicture.asset(
+              "assets/images/logo.svg",
+              width: 50,
+              height: 50,
+              fit: BoxFit.contain,
+            ),
           ),
         ),
       ),

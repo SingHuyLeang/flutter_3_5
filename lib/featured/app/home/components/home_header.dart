@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pet_app/utils/theme/text_theme.dart';
 import 'package:pet_app/utils/types/colors.dart';
@@ -15,10 +16,13 @@ class HomeHeader extends StatelessWidget {
       child: Row(
         children: [
           // logo
-          SvgPicture.asset(
-            'assets/images/logo.svg',
-            width: 34,
-            height: 34,
+          Hero(
+            tag: 11111111,
+            child: SvgPicture.asset(
+              'assets/images/logo.svg',
+              width: 34,
+              height: 34,
+            ),
           ),
           const SizedBox(width: 16),
           // welcome
