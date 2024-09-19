@@ -14,6 +14,8 @@ class AssetButton extends StatelessWidget {
     this.mainAxisAlignment = MainAxisAlignment.center,
     this.color,
     this.textColor,
+    this.padding = 12,
+    this.filter,
   });
 
   final String? icon, text;
@@ -21,6 +23,8 @@ class AssetButton extends StatelessWidget {
   final double? width, height;
   final MainAxisAlignment mainAxisAlignment;
   final Color? color, textColor;
+  final double padding;
+  final ColorFilter? filter;
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +38,15 @@ class AssetButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(12),
+          padding: EdgeInsets.all(padding),
           child: Row(
             mainAxisAlignment: mainAxisAlignment,
             children: [
-              if (icon != null) SvgPicture.asset(icon!),
+              if (icon != null)
+                SvgPicture.asset(
+                  icon!,
+                  colorFilter: filter,
+                ),
               PText(
                 text: text ?? "",
                 color: textColor ?? PColors.light,

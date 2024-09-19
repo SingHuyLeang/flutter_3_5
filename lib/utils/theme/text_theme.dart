@@ -8,14 +8,18 @@ class PText extends StatelessWidget {
     required this.text,
     this.fontType = Font.medium,
     this.color,
-    this.size = 16,
+    this.size = 14,
     this.weight,
+    this.line,
+    this.overflow,
   });
   final String text;
   final String fontType;
   final Color? color;
   final double size;
   final FontWeight? weight;
+  final int? line;
+  final TextOverflow? overflow;
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +31,9 @@ class PText extends StatelessWidget {
         color: color ?? PColors.dark,
         fontWeight: weight,
       ),
-      maxLines: null,
+      maxLines: line,
       softWrap: true,
+      overflow: overflow,
     );
   }
 }

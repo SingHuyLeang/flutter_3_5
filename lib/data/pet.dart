@@ -1,21 +1,21 @@
 // model
 class Pet {
-  int? id;
-  String? name;
-  String? type;
-  double? price;
-  int? qty;
-  String? image;
-  String? description;
+  int id;
+  String name;
+  String type;
+  double price;
+  int qty;
+  String image;
+  String description;
 
   Pet({
-    this.id,
-    this.name,
-    this.type,
-    this.price,
-    this.qty,
-    this.image,
-    this.description,
+    required this.id,
+    required this.name,
+    required this.type,
+    required this.price,
+    required this.qty,
+    required this.image,
+    required this.description,
   });
 
   Map<String, dynamic> toMap() => {
@@ -28,12 +28,12 @@ class Pet {
         "description": description,
       };
   factory Pet.fromMap(Map<String, dynamic> map) => Pet(
-        id: map["id"] as int?,
-        name: map["name"] as String?,
-        type: map["type"] as String?,
-        price: map["price"] as double?,
-        qty: map["qty"] as int?,
-        image: map["image"] as String?,
-        description: map["description"] as String?,
+        id: map["id"],
+        name: map["name"],
+        type: map["type"],
+        price: map["price"],
+        qty: map["qty"],
+        image: map["image"],
+        description: map["description"],
       );
 }

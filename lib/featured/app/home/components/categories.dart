@@ -30,7 +30,7 @@ class CategoriesSlider extends StatelessWidget {
             padding: EdgeInsets.only(left: 32.0),
             child: PText(
               text: "Categories",
-              weight: FontWeight.bold,
+              size: 16,
             ),
           ),
           const SizedBox(height: 16),
