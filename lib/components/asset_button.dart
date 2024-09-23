@@ -16,6 +16,7 @@ class AssetButton extends StatelessWidget {
     this.textColor,
     this.padding = 12,
     this.filter,
+    this.radius = 12,
   });
 
   final String? icon, text;
@@ -25,6 +26,7 @@ class AssetButton extends StatelessWidget {
   final Color? color, textColor;
   final double padding;
   final ColorFilter? filter;
+  final double radius;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,7 @@ class AssetButton extends StatelessWidget {
         height: height,
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(radius),
         ),
         child: Padding(
           padding: EdgeInsets.all(padding),

@@ -44,4 +44,5 @@ class PetController extends GetxController {
           "Golden gru disposition of the child of the child of the child of the child of the child of the child of the child of the child of the child of the child of the child of the child of the child of the child of the child of the child of the child of the child of the child of the child of the child",
     ),
   ].obs;
+  
 }

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pet_app/controller/pet_controller.dart';
 import 'package:pet_app/data/pet.dart';
+import 'package:pet_app/featured/app/detail/datail_page.dart';
 import 'package:pet_app/utils/theme/text_theme.dart';
 
 class PetGrid extends StatelessWidget {
@@ -39,14 +41,20 @@ class PetGrid extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // image
-        Container(
-          width: double.infinity,
-          height: 187,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            image: DecorationImage(
-              image: AssetImage(pet.image),
-              fit: BoxFit.cover,
+        GestureDetector(
+          onTap: () => Get.to(DetailPage(pet: pet)),
+          child: Hero(
+            tag: pet.id,
+            child: Container(
+              width: double.infinity,
+              height: 187,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                image: DecorationImage(
+                  image: AssetImage(pet.image),
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
           ),
         ),
