@@ -14,10 +14,9 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         height: MediaQuery.of(context).size.height,
-        color: Colors.amber,
         child: Stack(
           children: <Widget>[
             // hero image
@@ -77,18 +76,17 @@ class DetailPage extends StatelessWidget {
               ),
             ),
             // details
-            Positioned(
-              top: 10,
+            Padding(
+              padding: const EdgeInsets.only(top: 380),
               child: Container(
                 width: double.infinity,
-                // height: 600,
-                // decoration: BoxDecoration(
-                color: Colors.green,
-                // borderRadius: BorderRadius.only(
-                //   topLeft: Radius.circular(12),
-                //   topRight: Radius.circular(12),
-                // ),
-                // ),
+                decoration: BoxDecoration(
+                  color: Colors.green[100],
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(24),
+                    topRight: Radius.circular(24),
+                  ),
+                ),
               ),
             )
           ],
