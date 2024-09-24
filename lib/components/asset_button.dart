@@ -17,6 +17,8 @@ class AssetButton extends StatelessWidget {
     this.padding = 12,
     this.filter,
     this.radius = 12,
+    this.textSize = 14,
+    this.isOutlinButton = false,
   });
 
   final String? icon, text;
@@ -26,7 +28,8 @@ class AssetButton extends StatelessWidget {
   final Color? color, textColor;
   final double padding;
   final ColorFilter? filter;
-  final double radius;
+  final double radius, textSize;
+  final bool isOutlinButton;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +40,7 @@ class AssetButton extends StatelessWidget {
         height: height,
         decoration: BoxDecoration(
           color: color,
+          border: !isOutlinButton ? null : Border.all(color: PColors.stroke),
           borderRadius: BorderRadius.circular(radius),
         ),
         child: Padding(
@@ -52,6 +56,7 @@ class AssetButton extends StatelessWidget {
               PText(
                 text: text ?? "",
                 color: textColor ?? PColors.light,
+                size: textSize,
               )
             ],
           ),
