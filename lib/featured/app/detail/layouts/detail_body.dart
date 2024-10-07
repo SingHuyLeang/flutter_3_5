@@ -7,6 +7,7 @@ import 'package:pet_app/data/pet.dart';
 import 'package:pet_app/utils/theme/text_theme.dart';
 import 'package:pet_app/utils/types/colors.dart';
 import 'package:pet_app/utils/types/fonts.dart';
+import 'package:see_more/see_more.dart';
 
 class DetailBody extends StatelessWidget {
   const DetailBody({super.key, required this.pet});
@@ -58,10 +59,10 @@ class DetailBody extends StatelessWidget {
                 Row(
                   children: [
                     AssetButton(
-                      onTab: () => log("message increment qty"),
+                      onTab: () => log("message decrement qty"),
                       width: 24,
                       height: 24,
-                      text: "+",
+                      text: "-",
                       radius: 8,
                       padding: 0,
                       textSize: 16,
@@ -76,14 +77,14 @@ class DetailBody extends StatelessWidget {
                       radius: 8,
                       padding: 0,
                       textSize: 16,
-                      textColor: PColors.dark,
+                      textColor: PColors.primary,
                     ),
                     const SizedBox(width: 6),
                     AssetButton(
                       onTab: () => log("message increment qty"),
                       width: 24,
                       height: 24,
-                      text: "-",
+                      text: "+",
                       radius: 8,
                       padding: 0,
                       textSize: 16,
@@ -94,9 +95,41 @@ class DetailBody extends StatelessWidget {
                 )
               ],
             ),
+            // about the breed
+            const SizedBox(height: 24),
+            const PText(
+              text: "About the Breed",
+              fontType: Font.medium,
+              size: 20,
+            ),
+            const SizedBox(height: 16),
+            SeeMoreWidget(
+              pet.description,
+              textStyle: TextStyle(
+                fontSize: 16,
+                color: PColors.dark,
+                fontFamily: Font.medium,
+              ),
+              animationDuration: const Duration(milliseconds: 200),
+              seeMoreText: "... See More",
+              seeMoreStyle: TextStyle(
+                fontSize: 16,
+                color: PColors.primary,
+                fontFamily: Font.medium,
+              ),
+              seeLessText: ". See Less",
+              seeLessStyle: TextStyle(
+                fontSize: 16,
+                color: PColors.primary,
+                fontFamily: Font.medium,
+              ),
+              trimLength: 240,
+            ),
           ],
         ),
       ),
+      // bottom nav
     );
+    
   }
 }

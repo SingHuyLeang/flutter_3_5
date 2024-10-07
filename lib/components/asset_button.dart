@@ -19,6 +19,7 @@ class AssetButton extends StatelessWidget {
     this.radius = 12,
     this.textSize = 14,
     this.isOutlinButton = false,
+    this.iconSize,
   });
 
   final String? icon, text;
@@ -29,6 +30,7 @@ class AssetButton extends StatelessWidget {
   final double padding;
   final ColorFilter? filter;
   final double radius, textSize;
+  final double? iconSize;
   final bool isOutlinButton;
 
   @override
@@ -52,6 +54,8 @@ class AssetButton extends StatelessWidget {
                 SvgPicture.asset(
                   icon!,
                   colorFilter: filter,
+                  width: iconSize,
+                  height: iconSize,
                 ),
               PText(
                 text: text ?? "",

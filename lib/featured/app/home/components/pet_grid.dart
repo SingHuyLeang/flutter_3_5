@@ -85,6 +85,7 @@ class PetGrid extends StatelessWidget {
         // price
         PText(text: '\$ ${pet.price}'),
       ],
+      
     );
   }
 }
