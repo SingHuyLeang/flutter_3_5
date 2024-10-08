@@ -15,7 +15,7 @@ class AssetButton extends StatelessWidget {
     this.color,
     this.textColor,
     this.padding = 12,
-    this.filter,
+    this.iconColor,
     this.radius = 12,
     this.textSize = 14,
     this.isOutlinButton = false,
@@ -28,7 +28,7 @@ class AssetButton extends StatelessWidget {
   final MainAxisAlignment mainAxisAlignment;
   final Color? color, textColor;
   final double padding;
-  final ColorFilter? filter;
+  final Color? iconColor;
   final double radius, textSize;
   final double? iconSize;
   final bool isOutlinButton;
@@ -53,7 +53,7 @@ class AssetButton extends StatelessWidget {
               if (icon != null)
                 SvgPicture.asset(
                   icon!,
-                  colorFilter: filter,
+                  color: iconColor,
                   width: iconSize,
                   height: iconSize,
                 ),

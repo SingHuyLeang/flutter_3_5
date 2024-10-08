@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:pet_app/featured/app/cart/cart_page.dart';
 import 'package:pet_app/featured/app/home/components/categories.dart';
 import 'package:pet_app/featured/app/home/components/home_header.dart';
 import 'package:pet_app/featured/app/home/components/pet_grid.dart';
@@ -40,6 +43,11 @@ class HomePage extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: PColors.primary,
+        onPressed: () => Get.to(() => CartPage()),
+        child: SvgPicture.asset('assets/images/cart.svg'),
       ),
     );
   }
