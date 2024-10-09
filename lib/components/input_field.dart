@@ -14,6 +14,7 @@ class InputField extends StatelessWidget {
     this.height = 50.0,
     this.icon,
     this.onTab,
+    this.alignment = Alignment.center,
   });
 
   final TextEditingController controller;
@@ -22,13 +23,14 @@ class InputField extends StatelessWidget {
   final String hint;
   final String? icon;
   final void Function()? onTab;
+  final AlignmentGeometry alignment;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: width,
       height: height,
-      alignment: Alignment.center,
+      alignment: alignment,
       padding: icon == null
           ? const EdgeInsets.symmetric(horizontal: 16.0)
           : const EdgeInsets.only(left: 16.0),

@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:pet_app/featured/app/form/form_page.dart';
 import 'package:pet_app/utils/theme/text_theme.dart';
 import 'package:pet_app/utils/types/colors.dart';
 import 'package:pet_app/utils/types/fonts.dart';
@@ -16,12 +19,15 @@ class HomeHeader extends StatelessWidget {
       child: Row(
         children: [
           // logo
-          Hero(
-            tag: 11111111,
-            child: SvgPicture.asset(
-              'assets/images/logo.svg',
-              width: 34,
-              height: 34,
+          GestureDetector(
+            onTap: () => Get.to(() => const FormPage()),
+            child: Hero(
+              tag: 11111111,
+              child: SvgPicture.asset(
+                'assets/images/logo.svg',
+                width: 34,
+                height: 34,
+              ),
             ),
           ),
           const SizedBox(width: 16),
