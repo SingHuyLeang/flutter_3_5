@@ -25,4 +25,28 @@ class UserDatabase {
       rethrow;
     }
   }
+
+  Future<bool> login({
+    required String username,
+    required String password,
+  }) async {
+    try {
+      // loggic
+    } catch (e) {
+      log("Exception on login by : $e");
+    }
+    return false;
+  }
+
+  Future<bool> createAccount({
+    required String username,
+    required String password,
+  }) async {
+    try {
+      // loggic
+    } catch (e) {
+      log("Exception on login by : $e");
+    }
+    return false;
+  }
 }
