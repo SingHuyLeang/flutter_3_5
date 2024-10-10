@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:pet_app/data/cart.dart';
+import 'package:pet_app/featured/app/model/cart.dart';
 
 class CartController extends GetxController {
   final carts = <Cart>[

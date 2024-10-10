@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pet_app/components/asset_button.dart';
-import 'package:pet_app/data/pet.dart';
+import 'package:pet_app/featured/app/model/pet.dart';
 import 'package:pet_app/utils/theme/text_theme.dart';
 import 'package:pet_app/utils/types/colors.dart';
 import 'package:pet_app/utils/types/fonts.dart';

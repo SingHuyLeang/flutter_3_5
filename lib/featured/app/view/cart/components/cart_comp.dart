@@ -1,10 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pet_app/components/asset_button.dart';
-import 'package:pet_app/data/cart.dart';
-import 'package:pet_app/featured/app/cart/components/text_gradient.dart';
+import 'package:pet_app/featured/app/model/cart.dart';
+import 'package:pet_app/featured/app/view/cart/components/text_gradient.dart';
 import 'package:pet_app/utils/theme/text_theme.dart';
 import 'package:pet_app/utils/types/colors.dart';
 import 'package:pet_app/utils/types/fonts.dart';

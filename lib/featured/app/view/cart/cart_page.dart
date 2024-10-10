@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_app/components/asset_button.dart';
-import 'package:pet_app/controller/cart_controller.dart';
-import 'package:pet_app/featured/app/cart/components/cart_comp.dart';
-import 'package:pet_app/featured/app/home/home_page.dart';
+import 'package:pet_app/featured/app/controller/cart_controller.dart';
+import 'package:pet_app/featured/app/view/cart/components/cart_comp.dart';
+import 'package:pet_app/featured/app/view/home/home_page.dart';
 import 'package:pet_app/utils/theme/text_theme.dart';
 import 'package:pet_app/utils/types/colors.dart';
 import 'package:pet_app/utils/types/fonts.dart';

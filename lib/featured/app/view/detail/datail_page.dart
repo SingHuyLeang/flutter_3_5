@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pet_app/components/asset_button.dart';
-import 'package:pet_app/data/pet.dart';
-import 'package:pet_app/featured/app/detail/layouts/detail_body.dart';
-import 'package:pet_app/featured/app/detail/layouts/detail_heading.dart';
+import 'package:pet_app/featured/app/model/pet.dart';
+import 'package:pet_app/featured/app/view/detail/layouts/detail_body.dart';
+import 'package:pet_app/featured/app/view/detail/layouts/detail_heading.dart';
 import 'package:pet_app/utils/types/colors.dart';
 
 class DetailPage extends StatelessWidget {

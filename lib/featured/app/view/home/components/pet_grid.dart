@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:pet_app/controller/pet_controller.dart';
-import 'package:pet_app/data/pet.dart';
-import 'package:pet_app/featured/app/detail/datail_page.dart';
+import 'package:pet_app/featured/app/controller/pet_controller.dart';
+import 'package:pet_app/featured/app/model/pet.dart';
+import 'package:pet_app/featured/app/view/detail/datail_page.dart';
 import 'package:pet_app/utils/theme/text_theme.dart';
 
 class PetGrid extends StatelessWidget {

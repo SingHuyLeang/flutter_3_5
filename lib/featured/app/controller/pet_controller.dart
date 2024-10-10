@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:pet_app/data/pet.dart';
+import 'package:pet_app/featured/app/model/pet.dart';
 
 class PetController extends GetxController {
   final pets = <Pet>[

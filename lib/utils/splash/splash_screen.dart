@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:pet_app/featured/app/home/home_page.dart';
+import 'package:pet_app/featured/app/view/home/home_page.dart';
 
 class SplashController extends GetxController {
   Future delayed() async {

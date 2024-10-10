@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:pet_app/featured/app/cart/cart_page.dart';
-import 'package:pet_app/featured/app/home/components/categories.dart';
-import 'package:pet_app/featured/app/home/components/home_header.dart';
-import 'package:pet_app/featured/app/home/components/pet_grid.dart';
+import 'package:pet_app/featured/app/view/cart/cart_page.dart';
+import 'package:pet_app/featured/app/view/home/components/categories.dart';
+import 'package:pet_app/featured/app/view/home/components/home_header.dart';
+import 'package:pet_app/featured/app/view/home/components/pet_grid.dart';
 import 'package:pet_app/utils/theme/text_theme.dart';
 import 'package:pet_app/utils/types/colors.dart';
 

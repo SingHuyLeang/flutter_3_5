@@ -21,8 +21,7 @@ class CreateAccount extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 // title
-                const PText(
-                    text: "Create account", size: 32, fontType: Font.bold),
+                const PText(text: "Create account", size: 32, fontType: Font.bold),
                 // image
                 const SizedBox(height: 32),
                 Align(

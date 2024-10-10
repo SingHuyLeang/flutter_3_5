@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:pet_app/components/asset_button.dart';
-import 'package:pet_app/data/pet.dart';
+import 'package:pet_app/featured/app/model/pet.dart';
 import 'package:pet_app/utils/types/colors.dart';
 
 class DetialHeading extends StatelessWidget {
