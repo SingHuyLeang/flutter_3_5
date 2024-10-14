@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:pet_app/featured/authentication/model/user.dart';
 import 'package:sqflite/sqflite.dart';
 
 class UserDatabase {
@@ -26,10 +27,7 @@ class UserDatabase {
     }
   }
 
-  Future<bool> login({
-    required String username,
-    required String password,
-  }) async {
+  Future<bool> login({required User user}) async {
     try {
       // loggic
     } catch (e) {
@@ -38,12 +36,10 @@ class UserDatabase {
     return false;
   }
 
-  Future<bool> createAccount({
-    required String username,
-    required String password,
-  }) async {
+  Future<bool> createAccount({required User user}) async {
     try {
-      // loggic
+      final db = await init();
+      return await db.insert(tableName, user.toMap()) > 0;
     } catch (e) {
       log("Exception on login by : $e");
     }

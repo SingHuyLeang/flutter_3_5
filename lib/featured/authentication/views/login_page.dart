@@ -3,13 +3,16 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pet_app/components/asset_button.dart';
 import 'package:pet_app/components/input_field.dart';
+import 'package:pet_app/featured/authentication/controller/user_controller.dart';
 import 'package:pet_app/featured/authentication/views/create_account_page.dart';
 import 'package:pet_app/utils/theme/text_theme.dart';
 import 'package:pet_app/utils/types/colors.dart';
 import 'package:pet_app/utils/types/fonts.dart';
 
 class LogInPage extends StatelessWidget {
-  const LogInPage({super.key});
+  LogInPage({super.key});
+
+  final controller = Get.put(UserController());
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +114,7 @@ class LogInPage extends StatelessWidget {
                     width: double.infinity,
                     text: "Create new account ?",
                     textColor: PColors.primary,
-                    onTab: () => Get.to(() => const CreateAccount()),
+                    onTab: () => Get.to(() => CreateAccount()),
                   ),
                 ),
               ],

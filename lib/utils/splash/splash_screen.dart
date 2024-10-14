@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pet_app/featured/app/view/home/home_page.dart';
+import 'package:pet_app/featured/authentication/views/login_page.dart';
 
 class SplashController extends GetxController {
+  final isLogged = false;
+
   Future delayed() async {
     await Future.delayed(const Duration(seconds: 3));
   }
@@ -11,7 +14,9 @@ class SplashController extends GetxController {
   @override
   void onInit() async {
     super.onInit();
-    delayed().whenComplete(() => Get.to(() => const HomePage()));
+    delayed().whenComplete(
+      () => Get.to(() => isLogged ? HomePage() : LogInPage()),
+    );
   }
 }
 
