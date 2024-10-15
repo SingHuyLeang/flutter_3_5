@@ -29,7 +29,10 @@ class UserDatabase {
 
   Future<bool> login({required User user}) async {
     try {
-      // loggic
+      final db = await init();
+      final respone = await db.rawQuery(
+          "SELECT $colId FROM $tableName WHERE $colUsername='${user.username}' AND $colPassword='${user.password}'");
+      return respone.isNotEmpty;
     } catch (e) {
       log("Exception on login by : $e");
     }

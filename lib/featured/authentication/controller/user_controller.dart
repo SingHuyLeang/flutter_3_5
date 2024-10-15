@@ -16,8 +16,27 @@ class UserController extends GetxController {
 
   // loggin
   Future<void> login() async {
-    //
+    log(ctrUsername.text);
+    log(ctrPass.text);
+    if (ctrUsername.text.isNotEmpty && ctrPass.text.isNotEmpty) {
+      final response = await db.login(
+        user: User(
+          username: ctrUsername.text,
+          password: ctrPass.text,
+        ),
+      );
+
+      if (response) {
+        Get.to(() => HomePage());
+      } else {
+        Get.snackbar("Authentication", "Invalid username or password");
+      }
+    } else {
+      Get.snackbar("Authentication", "All fields are required");
+      return;
+    }
   }
+
   // create new account
   Future<void> createAccount() async {
     if (ctrUsername.text.isNotEmpty &&

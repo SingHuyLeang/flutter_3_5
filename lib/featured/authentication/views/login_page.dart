@@ -46,12 +46,12 @@ class LogInPage extends StatelessWidget {
                 // form
                 const SizedBox(height: 32),
                 InputField(
-                  controller: TextEditingController(),
+                  controller: controller.ctrUsername,
                   hint: "Enter your username",
                 ),
                 const SizedBox(height: 16),
                 InputField(
-                  controller: TextEditingController(),
+                  controller: controller.ctrPass,
                   hint: "Enter your password",
                   icon: "assets/images/eye.svg",
                 ),
@@ -103,7 +103,7 @@ class LogInPage extends StatelessWidget {
                     height: 50,
                     text: "Log In",
                     color: PColors.primary,
-                    onTab: () {},
+                    onTab: () => controller.login(),
                   ),
                 ),
                 const SizedBox(height: 24),
