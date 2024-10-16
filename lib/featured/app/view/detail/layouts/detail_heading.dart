@@ -11,7 +11,7 @@ class DetialHeading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Hero(
-      tag: pet.id,
+      tag: pet.name,
       child: Container(
         width: double.infinity,
         height: 400,

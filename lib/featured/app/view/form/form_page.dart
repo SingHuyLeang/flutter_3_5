@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_app/components/asset_button.dart';
 import 'package:pet_app/components/input_field.dart';
+import 'package:pet_app/featured/app/controller/pet_controller.dart';
 import 'package:pet_app/featured/app/view/form/components/form_upload_img.dart';
 import 'package:pet_app/utils/types/colors.dart';
 
 class FormPage extends StatelessWidget {
-  const FormPage({super.key});
+  FormPage({super.key});
+
+  final controller = Get.put(PetController());
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +25,7 @@ class FormPage extends StatelessWidget {
           AssetButton(
             text: "Add",
             textColor: PColors.primary,
-            onTab: () {},
+            onTab: () => controller.addProduct(),
           ),
         ],
       ),

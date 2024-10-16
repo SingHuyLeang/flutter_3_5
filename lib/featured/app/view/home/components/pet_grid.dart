@@ -44,7 +44,7 @@ class PetGrid extends StatelessWidget {
         GestureDetector(
           onTap: () => Get.to(DetailPage(pet: pet)),
           child: Hero(
-            tag: pet.id,
+            tag: pet.name,
             child: Container(
               width: double.infinity,
               height: 187,

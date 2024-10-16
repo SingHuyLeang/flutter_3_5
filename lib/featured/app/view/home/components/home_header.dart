@@ -20,7 +20,7 @@ class HomeHeader extends StatelessWidget {
         children: [
           // logo
           GestureDetector(
-            onTap: () => Get.to(() => const FormPage()),
+            onTap: () => Get.to(() => FormPage()),
             child: Hero(
               tag: 11111111,
               child: SvgPicture.asset(

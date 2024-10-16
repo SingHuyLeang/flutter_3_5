@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:pet_app/featured/app/model/pet.dart';
 import 'package:sqflite/sqflite.dart';
 
 class ProductDatabase {
@@ -34,5 +35,27 @@ class ProductDatabase {
       log("Database Exception: $e");
       rethrow;
     }
+  }
+
+  Future<bool> addProduct(Pet pet) async {
+    try {
+      final db = await init();
+      return await db.insert(table, pet.toMap()) > 0;
+    } catch (e) {
+      log("Error adding product: $e");
+      rethrow;
+    }
+  }
+
+  Future<List<Pet>> getAllProducts() async {
+    return [];
+  }
+
+  Future<bool> updateProduct(Pet pet) async {
+    return false;
+  }
+
+  Future<bool> deleteProduct(int id) async {
+    return false;
   }
 }

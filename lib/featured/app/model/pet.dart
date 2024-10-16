@@ -1,6 +1,6 @@
 // model
 class Pet {
-  int id;
+  int? id;
   String name;
   String type;
   double price;
@@ -9,7 +9,7 @@ class Pet {
   String description;
 
   Pet({
-    required this.id,
+    this.id,
     required this.name,
     required this.type,
     required this.price,
