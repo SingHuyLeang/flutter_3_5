@@ -2,12 +2,12 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pet_app/database/user/user.dart';
+import 'package:pet_app/database/product/product.dart';
 import 'package:pet_app/utils/splash/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
-  UserDatabase().init().then((value) => log(value.path));
+  ProductDatabase().init().then((value) => log(value.path));
 }
 
 class MyApp extends StatelessWidget {
