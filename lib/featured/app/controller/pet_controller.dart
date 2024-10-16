@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:get/get.dart';
+import 'package:pet_app/components/loading.dart';
 import 'package:pet_app/database/product/product.dart';
 import 'package:pet_app/featured/app/model/pet.dart';
 
@@ -17,7 +18,9 @@ class PetController extends GetxController {
       image: "assets/images/pets/amzn.jpg",
       description: "description of the product in the database",
     );
+    openLoading();
     if (await db.addProduct(product)) {
+      closeLoading();
       log("Successfully added the product");
     } else {
       log("Failed to add the product");
