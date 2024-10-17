@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:get/get.dart';
 import 'package:pet_app/components/loading.dart';
+import 'package:pet_app/components/pick_image.dart';
 import 'package:pet_app/database/product/product.dart';
 import 'package:pet_app/featured/app/model/pet.dart';
 
@@ -23,7 +24,15 @@ class PetController extends GetxController {
       closeLoading();
       log("Successfully added the product");
     } else {
+      closeLoading();
       log("Failed to add the product");
+    }
+  }
+
+  Future<void> selectImage() async {
+    final path = await pickImage();
+    if (path.isNotEmpty) {
+      log("path image: $path");
     }
   }
 }

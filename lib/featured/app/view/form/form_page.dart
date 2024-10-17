@@ -37,7 +37,7 @@ class FormPage extends StatelessWidget {
           child: Column(
             children: [
               // image product
-              const FormUploadImg(),
+              FormUploadImg(),
               const SizedBox(height: 67),
               // forms
               InputField(
