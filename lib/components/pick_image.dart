@@ -1,12 +1,13 @@
 import 'dart:developer';
+import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 
-Future<String> pickImage() async {
+Future<File> pickImage() async {
   try {
     XFile? file = await ImagePicker().pickImage(source: ImageSource.gallery);
-    return file?.path ?? "Empty";
+    return File(file!.path);
   } catch (e) {
     log("Exception in pickImage : $e");
-    return "Error";
+    rethrow;
   }
 }

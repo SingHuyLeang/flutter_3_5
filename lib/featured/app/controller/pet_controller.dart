@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:get/get.dart';
 import 'package:pet_app/components/loading.dart';
@@ -9,6 +10,7 @@ import 'package:pet_app/featured/app/model/pet.dart';
 class PetController extends GetxController {
   final pets = <Pet>[].obs;
   final db = ProductDatabase();
+  var fileImage = Rx<File?>(null);
 
   Future<void> addProduct() async {
     final product = Pet(
@@ -30,9 +32,7 @@ class PetController extends GetxController {
   }
 
   Future<void> selectImage() async {
-    final path = await pickImage();
-    if (path.isNotEmpty) {
-      log("path image: $path");
-    }
+    fileImage.value = await pickImage();
+    update();
   }
 }
