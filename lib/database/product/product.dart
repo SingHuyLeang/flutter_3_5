@@ -48,6 +48,13 @@ class ProductDatabase {
   }
 
   Future<List<Pet>> getAllProducts() async {
+    try {
+      final db = await init();
+      final response = await db.query(table);
+      return response.map((data) => Pet.fromMap(data)).toList();
+    } catch (e) {
+      log("Error getting all products: $e");
+    }
     return [];
   }
 

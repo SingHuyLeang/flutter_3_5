@@ -18,6 +18,27 @@ class PetController extends GetxController {
   final qtyCtr = TextEditingController();
   final detailCtr = TextEditingController();
 
+  @override
+  void onInit() async {
+    await getAllPets().whenComplete(() {
+      if (pets.isEmpty) {
+        log("no pets");
+      } else {
+        for (var pet in pets) {
+          log("id : ${pet.id}");
+          log("name : ${pet.name}");
+          log("qty : ${pet.qty}");
+          log("type : ${pet.type}");
+          log("price : ${pet.price}");
+          log("image : ${pet.image}");
+          log("detail : ${pet.description}");
+        }
+      }
+    });
+
+    super.onInit();
+  }
+
   Future<void> addProduct() async {
     if (nameCtr.text.isEmpty ||
         typeCtr.text.isEmpty ||
@@ -40,15 +61,30 @@ class PetController extends GetxController {
       if (await db.addProduct(product)) {
         closeLoading();
         log("Successfully added the product");
+        clearInput();
       } else {
         closeLoading();
         log("Failed to add the product");
       }
     }
+    update();
   }
 
   Future<void> selectImage() async {
     fileImage.value = await pickImage();
     update();
+  }
+
+  Future<void> getAllPets() async {
+    pets.addAll(await db.getAllProducts());
+  }
+
+  void clearInput() {
+    nameCtr.clear();
+    typeCtr.clear();
+    priceCtr.clear();
+    qtyCtr.clear();
+    detailCtr.clear();
+    fileImage.value = null;
   }
 }
