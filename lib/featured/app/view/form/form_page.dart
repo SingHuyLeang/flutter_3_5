@@ -41,29 +41,29 @@ class FormPage extends StatelessWidget {
               const SizedBox(height: 67),
               // forms
               InputField(
-                controller: TextEditingController(),
+                controller: controller.nameCtr,
                 hint: "Pet Name",
               ),
               const SizedBox(height: 16),
               InputField(
-                controller: TextEditingController(),
+                controller: controller.typeCtr,
                 hint: "Pet Type",
               ),
               const SizedBox(height: 16),
               InputField(
-                controller: TextEditingController(),
+                controller: controller.priceCtr,
                 hint: "Pet Price",
                 icon: "assets/images/usd.svg",
               ),
               const SizedBox(height: 16),
               InputField(
-                controller: TextEditingController(),
+                controller: controller.qtyCtr,
                 hint: "Quantity in store",
               ),
               const SizedBox(height: 16),
               InputField(
                 height: 248,
-                controller: TextEditingController(),
+                controller: controller.detailCtr,
                 hint: "About the Breed",
                 alignment: Alignment.topLeft,
               ),
