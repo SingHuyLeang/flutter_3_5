@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_app/database/user/user.dart';
@@ -16,8 +14,6 @@ class UserController extends GetxController {
 
   // loggin
   Future<void> login() async {
-    log(ctrUsername.text);
-    log(ctrPass.text);
     if (ctrUsername.text.isNotEmpty && ctrPass.text.isNotEmpty) {
       final response = await db.login(
         user: User(

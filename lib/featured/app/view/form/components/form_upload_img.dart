@@ -27,6 +27,7 @@ class FormUploadImg extends StatelessWidget {
             decoration: BoxDecoration(
               image: controller.fileImage.value != null
                   ? DecorationImage(
+                      fit: BoxFit.cover,
                       image: FileImage(controller.fileImage.value!))
                   : null,
             ),

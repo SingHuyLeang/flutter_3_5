@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:pet_app/featured/app/controller/pet_controller.dart';
 import 'package:pet_app/featured/app/model/pet.dart';
 import 'package:pet_app/featured/app/view/detail/datail_page.dart';
+import 'package:pet_app/utils/coverts/converter.dart';
 import 'package:pet_app/utils/theme/text_theme.dart';
 
 class PetGrid extends StatelessWidget {
@@ -14,25 +15,28 @@ class PetGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        const PText(text: "Adopt Pet", size: 16),
-        const SizedBox(height: 16),
-        GridView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: controller.pets.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisSpacing: 16,
-            crossAxisSpacing: 16,
-            mainAxisExtent: 253,
-          ),
-          itemBuilder: (context, index) => productCard(controller.pets[index]),
-        )
-      ],
+    return Obx(
+      () => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          const PText(text: "Adopt Pet", size: 16),
+          const SizedBox(height: 16),
+          GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: controller.pets.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 16,
+              crossAxisSpacing: 16,
+              mainAxisExtent: 253,
+            ),
+            itemBuilder: (context, index) =>
+                productCard(controller.pets[index]),
+          )
+        ],
+      ),
     );
   }
 
@@ -50,10 +54,12 @@ class PetGrid extends StatelessWidget {
               height: 187,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                image: DecorationImage(
-                  image: AssetImage(pet.image),
-                  fit: BoxFit.cover,
-                ),
+                image: pet.image.isNotEmpty
+                    ? DecorationImage(
+                        fit: BoxFit.cover,
+                        image: Converter().convertStringToFileImage(pet.image),
+                      )
+                    : null,
               ),
             ),
           ),
@@ -85,7 +91,6 @@ class PetGrid extends StatelessWidget {
         // price
         PText(text: '\$ ${pet.price}'),
       ],
-      
     );
   }
 }

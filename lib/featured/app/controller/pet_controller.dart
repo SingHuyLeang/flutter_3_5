@@ -49,18 +49,19 @@ class PetController extends GetxController {
       Get.snackbar("Notification", "All fields are required");
       return;
     } else {
-      final product = Pet(
+      final tempPet = Pet(
         name: nameCtr.text.trim(),
         type: typeCtr.text.trim(),
         price: double.parse(priceCtr.text.trim()),
         qty: int.parse(qtyCtr.text.trim()),
-        image: fileImage.value.toString(),
+        image: fileImage.value!.path,
         description: detailCtr.text.trim(),
       );
       openLoading();
-      if (await db.addProduct(product)) {
+      if (await db.addProduct(tempPet)) {
         closeLoading();
         log("Successfully added the product");
+        pets.add(tempPet);
         clearInput();
       } else {
         closeLoading();
@@ -76,7 +77,7 @@ class PetController extends GetxController {
   }
 
   Future<void> getAllPets() async {
-    pets.addAll(await db.getAllProducts());
+    pets.value = await db.getAllProducts();
   }
 
   void clearInput() {
