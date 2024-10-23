@@ -11,31 +11,16 @@ import 'package:pet_app/featured/app/model/pet.dart';
 class PetController extends GetxController {
   final pets = <Pet>[].obs;
   final db = ProductDatabase();
-  var fileImage = Rx<File?>(null);
   final nameCtr = TextEditingController();
   final typeCtr = TextEditingController();
   final priceCtr = TextEditingController();
   final qtyCtr = TextEditingController();
   final detailCtr = TextEditingController();
+  var fileImage = Rx<File?>(null);
 
   @override
   void onInit() async {
-    await getAllPets().whenComplete(() {
-      if (pets.isEmpty) {
-        log("no pets");
-      } else {
-        for (var pet in pets) {
-          log("id : ${pet.id}");
-          log("name : ${pet.name}");
-          log("qty : ${pet.qty}");
-          log("type : ${pet.type}");
-          log("price : ${pet.price}");
-          log("image : ${pet.image}");
-          log("detail : ${pet.description}");
-        }
-      }
-    });
-
+    await getAllPets();
     super.onInit();
   }
 
