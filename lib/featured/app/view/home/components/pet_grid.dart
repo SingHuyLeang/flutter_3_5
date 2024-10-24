@@ -32,21 +32,25 @@ class PetGrid extends StatelessWidget {
               crossAxisSpacing: 16,
               mainAxisExtent: 253,
             ),
-            itemBuilder: (context, index) =>
-                productCard(controller.pets[index]),
+            itemBuilder: (context, index) => productCard(
+              controller.pets[index],
+              () => controller.delete(index),
+            ),
           )
         ],
       ),
     );
   }
 
-  Widget productCard(Pet pet) {
+  Widget productCard(Pet pet, void Function()? onLongPress) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // image
         GestureDetector(
           onTap: () => Get.to(DetailPage(pet: pet)),
+          onDoubleTap: (){},
+          onLongPress: onLongPress,
           child: Hero(
             tag: pet.name,
             child: Container(

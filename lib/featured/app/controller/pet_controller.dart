@@ -73,4 +73,18 @@ class PetController extends GetxController {
     detailCtr.clear();
     fileImage.value = null;
   }
+
+  Future<void> delete(int index) async {
+    final id = pets[index].id;
+    openLoading();
+    if (await db.deleteProduct(id!)) {
+      closeLoading();
+      log("Successfully deleted the product");
+      pets.removeAt(index);
+    } else {
+      closeLoading();
+      log("Failed to delete the product");
+    }
+    update();
+  }
 }

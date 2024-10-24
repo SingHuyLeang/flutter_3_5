@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:pet_app/featured/app/model/pet.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -63,6 +62,17 @@ class ProductDatabase {
   }
 
   Future<bool> deleteProduct(int id) async {
+    try {
+      final db = await init();
+      return await db.delete(
+            table,
+            where: "${this.id} = ?",
+            whereArgs: [id],
+          ) >
+          0;
+    } catch (e) {
+      log("Error deleting product: $e");
+    }
     return false;
   }
 }
