@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:get/get.dart';
 import 'package:pet_app/featured/app/model/cart.dart';
 import 'package:pet_app/featured/app/model/pet.dart';
@@ -18,6 +16,7 @@ class CartController extends GetxController {
       image: pet.image,
     );
     carts.add(cart);
+    qty.value = 0;
   }
 
   void countQty(bool isIncrement, int maxQty, double price) async {
@@ -32,5 +31,20 @@ class CartController extends GetxController {
     }
     subTotal.value = qty.value * price;
     update();
+  }
+
+  void deleteProduct(int index) async {
+    carts.removeAt(index);
+    update();
+  }
+
+  bool checkHasInCart(int id) {
+    bool isInCart = false;
+    for (var element in carts) {
+      if (element.id == id) {
+        isInCart = true;
+      }
+    }
+    return isInCart;
   }
 }

@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:pet_app/components/asset_button.dart';
 import 'package:pet_app/featured/app/model/cart.dart';
 import 'package:pet_app/featured/app/view/cart/components/text_gradient.dart';
+import 'package:pet_app/utils/coverts/converter.dart';
 import 'package:pet_app/utils/theme/text_theme.dart';
 import 'package:pet_app/utils/types/colors.dart';
 import 'package:pet_app/utils/types/fonts.dart';
 
 class CartComp extends StatelessWidget {
-  const CartComp({super.key, required this.cart});
-
+  const CartComp({super.key, required this.cart, this.onTapDelete});
+  final Function()? onTapDelete;
   final Cart cart;
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,7 +28,7 @@ class CartComp extends StatelessWidget {
             flex: 2,
             child: CircleAvatar(
               radius: 74,
-              backgroundImage: AssetImage(cart.image),
+              backgroundImage: Converter().convertStringToFileImage(cart.image),
             ),
           ),
           Expanded(
@@ -49,9 +49,10 @@ class CartComp extends StatelessWidget {
               ),
             ),
           ),
-          const Align(
+          Align(
             alignment: Alignment.topRight,
             child: AssetButton(
+              onTab: onTapDelete,
               icon: "assets/images/trush.svg",
               padding: 4,
             ),

@@ -32,28 +32,35 @@ class CartPage extends StatelessWidget {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(right: 32, left: 32, top: 32),
-          child: Column(
-            children: [
-              // recent activity
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const PText(text: "Recent activity", size: 16),
-                  PText(text: "1 items", color: PColors.primary, size: 14),
-                ],
-              ),
-              // list cart
-              const SizedBox(height: 22),
-              ...List.generate(
-                cartController.carts.length,
-                (index) => CartComp(
-                  cart: cartController.carts[index],
+      body: Obx(
+        () => SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(right: 32, left: 32, top: 32),
+            child: Column(
+              children: [
+                // recent activity
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const PText(text: "Recent activity", size: 16),
+                    PText(
+                        text: "${cartController.carts.length} items",
+                        color: PColors.primary,
+                        size: 14),
+                  ],
                 ),
-              ),
-            ],
+                // list cart
+                const SizedBox(height: 22),
+                ...List.generate(
+                  cartController.carts.length,
+                  (index) => CartComp(
+                    onTapDelete: () async =>
+                        cartController.deleteProduct(index),
+                    cart: cartController.carts[index],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

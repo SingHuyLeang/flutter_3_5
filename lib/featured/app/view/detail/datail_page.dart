@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:pet_app/components/asset_button.dart';
 import 'package:pet_app/featured/app/controller/cart_controller.dart';
 import 'package:pet_app/featured/app/model/pet.dart';
+import 'package:pet_app/featured/app/view/cart/cart_page.dart';
 import 'package:pet_app/featured/app/view/detail/layouts/detail_body.dart';
 import 'package:pet_app/featured/app/view/detail/layouts/detail_heading.dart';
 import 'package:pet_app/utils/types/colors.dart';
@@ -40,7 +41,9 @@ class DetailPage extends StatelessWidget {
                   }
                 },
                 width: 265,
-                text: "Add to cart",
+                text: cartCtr.checkHasInCart(pet.id!)
+                    ? "Added to cart"
+                    : "Add to cart",
                 textSize: 16,
                 textColor:
                     cartCtr.qty.value <= 0 ? PColors.solid : PColors.dark,
@@ -48,6 +51,7 @@ class DetailPage extends StatelessWidget {
               ),
               // button cart
               AssetButton(
+                onTab: () => Get.to(() => CartPage()),
                 width: 80,
                 icon: "assets/images/cart.svg",
                 color: PColors.primary,
